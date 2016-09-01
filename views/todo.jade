@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.text-center.user-name #{user.username}'s Todo List
+  br
+  form.todo-form.center-block(role='form', action="/todo",method="post", style='max-width: 300px;')
+    .form-group
+      input.form-control(type='text', id="item", placeholder='Enter item')
+    .pull-right
+      a(href='/')
+        button#cancelItem.btn.btn-default(type="button") Cancel
+      &nbsp;  
+      button#addItem.btn.btn-primary(type='submit') Submit
+  br
+  br
+  br
+  .col-md-4.col-md-offset-4
+    ul#todo-list(user-id='#{user._id}')
+      
